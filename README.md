@@ -3,9 +3,11 @@
 ### download linux and buildroot
 
 ```bash
-$ cd ~/workplaces
-$ git clone https://github.com/vernon2gh/linux.git
-$ git clone https://github.com/vernon2gh/buildroot.git
+$ git clone --recurse-submodules git@github.com:vernon2gh/minios.git
+# or
+$ git clone git@github.com:vernon2gh/minios.git
+$ cd minios
+$ git submodule update --init
 ```
 
 diffrent linux version use diffrent buildroot version, as example:
@@ -21,20 +23,20 @@ as except linux2.6.34 test x86_64 architecture only, other linux version can tes
 
 ```bash
 # x86_64
-$ cd /mnt/linux
+$ cd linux
 $ make x86_64_defconfig
 $ make
 
-$ cd /mnt/buildroot
+$ cd buildroot
 $ make qemu_x86_64_linuxx.x_defconfig
 $ make
 
 # arm64
-$ cd /mnt/linux
+$ cd linux
 $ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- defconfig
 $ make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu-
 
-$ cd /mnt/buildroot
+$ cd buildroot
 $ make qemu_aarch64_virt_linuxx.x_defconfig
 $ make
 ```
@@ -54,7 +56,7 @@ $ qemu-system-aarch64 -nographic -M virt -cpu cortex-a57 -kernel Image -initrd r
 If your current environment cannot be compiled, please use docker.
 
 1. download docker image
-2. startup docker image and mount ubuntu ~/workplaces to docker /mnt
+2. startup docker image and mount ubuntu <path>/minios to docker /mnt
 3. compile linux and buildroot
 
 Now docker images, as below:
@@ -68,6 +70,6 @@ As example, compile linux5.4 and buildroot2020.05
 
 ```bash
 $ docker pull vernon2dh/linux-5.x
-$ docker run -itd --name linux5.x -v ~/workplaces:/mnt vernon2dh/linux-5.x bash
+$ docker run -itd --name linux5.x -v <path>/minios:/mnt vernon2dh/linux-5.x bash
 $ docker exec -it linux5.x bash
 ```
