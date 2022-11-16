@@ -1,9 +1,9 @@
 [submodule "linux"]
 	path = linux
-	url = git@github.com:vernon2gh/linux.git
+	url = https://github.com/vernon2gh/linux.git
 [submodule "buildroot"]
 	path = buildroot
-	url = git@github.com:vernon2gh/buildroot.git
+	url = https://github.com/vernon2gh/buildroot.git
 [submodule "lk_modules"]
 	path = lk_modules
-	url = git@github.com:vernon2gh/lk_modules.git
+	url = https://github.com/vernon2gh/lk_modules.git
