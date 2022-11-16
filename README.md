@@ -3,9 +3,9 @@
 ### download linux and buildroot
 
 ```bash
-$ git clone --recurse-submodules git@github.com:vernon2gh/minios.git
+$ git clone --recurse-submodules https://github.com/vernon2gh/minios.git
 # or
-$ git clone git@github.com:vernon2gh/minios.git
+$ git clone https://github.com/vernon2gh/minios.git
 $ cd minios
 $ git submodule update --init
 ```
